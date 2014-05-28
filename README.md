@@ -114,7 +114,7 @@ Initialiser les tables de la base de données :
     php app/console doctrine:schema:update --force
 
 
-### Utilisation
+## Utilisation
 
 Une fois connecté, il faut créer les rôles : 
   
