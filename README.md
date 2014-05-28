@@ -37,5 +37,77 @@ Utilisation :
 
 Installation de la dernière version 2.3 de Synfony (Synfony 2.4 necessite PHP 5.4) : 
 
-    cd /var/www/procedures
+    cd /var/www/votre_projet
     composer.phar create-project symfony/framework-standard-edition symfony 2.3.*
+
+
+Ajouter votre adresse IP dans `app_dev.php` pour pouvoir accèder à Synfony : 
+
+    vim web/app_dev.php
+    || !in_array(@$_SERVER['REMOTE_ADDR'],
+        array(
+                '127.0.0.1', 'fe80::1', '::1',
+                '192.168.1.1'
+        ))
+
+
+
+### Installation de ce bundle 
+
+Ajouter cette ligne dans la section `require` de `composer.json` :
+
+    cd symfony
+    vim composer.json
+        "require": {
+            ...
+            "ove/authentification-bundle": "dev-master"
+
+
+Ajouter cette ligne dans la section `extra` de `composer.json` :
+
+    vim composer.json
+    "extra": {
+        ...
+        "symfony-assets-install": "symlink",
+
+Installer le Bundle avec composer : 
+
+    composer.phar update
+
+Activer le Bundle en ajoutant cette ligne dans l'array des bundle : 
+
+       vim app/AppKernel.php
+       $bundles = array(
+          ...
+          new OVE\AuthentificationBundle\OVEAuthentificationBundle(),
+
+
+Mise en place des fichiers de configuration : 
+
+    cp /var/web/procedures/symfony_demo/app/config/ove_authentification.yml app/config/
+    vim /var/web/procedures/symfony_demo/app/config/routing.yml
+    vim app/config/routing.yml
+    cp /var/web/procedures/symfony_demo/app/config/security.yml app/config/
+
+
+Mettre en place les assets : 
+
+    php app/console assets:install web --symlink
+
+    
+Vérfier que le routage fonctionne : 
+
+    php app/console router:debug
+
+
+Vider le cache
+
+    app/console cache:clear
+
+
+Initialiser les tables de la base de données : 
+
+    php app/console doctrine:schema:update --dump-sql
+    php app/console doctrine:schema:update --force
+
+
