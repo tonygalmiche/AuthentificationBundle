@@ -2,8 +2,10 @@ OVE - Bundle Symfony d'authentification et de gestion des rôles via LDAP ou MyS
 =========================
 
 
-# un titre de premier niveau
+## Fonctionnalités
 
+* Pommes
+* Pommes
 
 ## un titre de premier niveau
 
