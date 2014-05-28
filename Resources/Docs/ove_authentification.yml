@@ -1,0 +1,7 @@
+ove_authentification:
+    gestetab:
+        host : host_gestetab
+        reqLogin : le_login
+        reqPwd : le_mot_de_passe
+        getDirecteur : true
+

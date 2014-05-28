@@ -1,0 +1,6 @@
+
+ove_authentification:
+    resource: "@OVEAuthentificationBundle/Resources/config/routing/routing.yml"
+    prefix:   /
+
+
