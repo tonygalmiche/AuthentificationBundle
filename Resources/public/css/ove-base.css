@@ -1,0 +1,214 @@
+
+body {
+  padding-top: 35px;
+  margin: 10px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+
+
+
+.contenu {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+
+/*
+.form-horizontal {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+
+}
+*/
+
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+
+}
+
+
+
+
+
+/* ---------- FORMS ---------- */
+form label {
+	display: block;
+	/*text-transform: uppercase;*/
+	color: #2a2e36;
+	margin: 0 0 0.3125em 0;
+}
+
+form label.alt-label { text-transform: none; }
+
+form input[type="text"], input[type="password"], textarea {
+	border: 1px solid #d2df6c;
+	/*padding: 1em 0.625em;*/
+	padding: 0.2em;
+	outline: none;
+}
+	form input[type="text"]:hover, input[type="password"]:hover, textarea:hover,
+	form input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+		border: 1px solid #b5ca0b;
+	}
+	
+form input[type="checkbox"], form input[type="radio"] { margin-right: 0.833em; /* 10/12 */ }
+
+form input[type="submit"] {
+	border: none;
+	cursor: pointer;
+	padding: 0.833em; /* 10/12 */
+
+	background-position: right center;
+	padding-right: 3em; /* 36/12 */
+	background-repeat: no-repeat;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+form#search-form input {
+	border: none;
+	/* The inner text overflows on the BG image, so we're setting a right padding to stop that */
+	padding-right: 3em; /* 36/12 */
+}
+	form#search-form input:focus {
+		/* Same as .dark:hover */
+		background-color: #5d6677;
+		color: white;
+	}
+
+form p em {
+	margin-top: 0.833em; /* 10/12 */
+	display: block;
+}
+
+form p.form-error, form p.form-error label { color: #cf4425; }
+
+form p.form-error em {
+	background: transparent url('../images/icons/message-boxes/error.png') no-repeat left center;
+	padding-left: 2em; /* 24/12 */
+}
+
+form input.error-input { border: 1px solid #ff876f; }
+	form input.error-input:hover { border: 1px solid #b03e27; }
+
+/* Styling the HTML5 placeholders */
+/* So far they don't work in: IE, Opera 10 and below, Firefox 3.6 and below */
+::-webkit-input-placeholder { color: #858d9c; }
+:-moz-placeholder { color: #858d9c; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#content textarea { 
+    width:50em;
+}
+
+
+/* ---------- TABLES ---------- */
+
+#content table { 
+	margin-bottom: 1.25em; 
+}
+
+#content table th {
+		background-color: #5d6677;
+		color: white;
+		text-align: center;
+
+		padding: 0.5em;
+		border-left: 1px solid #747c8a;
+	}
+		
+#content table tbody td {
+		padding: 0.2em;
+		border-left: 1px solid white;
+		border-bottom: 1px solid #f8f9fa;
+	}
+
+	
+	/* Alternate table row */
+	
+#content table tbody tr:nth-child(odd) { background-color: #f8f9fa; }
+
+	/* Push the first cell to the right so it doesn't stick to the table border */
+	/*
+	table td:first-child, table th:first-child {
+		width: 4em 
+		text-align: center;
+		padding: 0;
+		border: none;
+		border-bottom: 1px solid #f8f9fa;
+	}
+	*/
+	
+#content table td:last-child, table th:last-child {
+		width: 7em; 
+		text-align: center;
+		padding: 0;
+	}
+	
+#content table td.table-footer {
+		text-align: left;
+		vertical-align: middle;
+		padding-top: 1.25em /* 15/12 */;
+		border: none;
+	}
+	
+#content a.table-actions-button {
+
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+
+
+	width: 1.25em;
+	height: 1.25em;
+	display: inline-block;
+	background-position: center center;
+}
+
+
+
+
+
+/* ---------- LISTS ---------- */
+#content ol li, .regular-ul li { margin-left: 1.25em; /* 20/16 */ }
+
+#content ol, .regular-ul, .custom-ul { margin-bottom: 1.25em; /* 20/16 */ }
+
+#content .custom-ul { list-style-type: none; }
+
+#content .custom-ul li {
+		background: transparent url('../images/menu-dark-indicator.png') no-repeat left center;
+		padding-left: 1.25em /* 10/12 */;
+	}
+
+
+
+/* ---------- CONTENT ---------- */
+
+
+
+

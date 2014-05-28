@@ -1,0 +1,36 @@
+{% extends "OVEAuthentificationBundle:Default:ove-base.html.twig" %}
+
+{% block content -%}
+    <h1>Liste des rôles</h1>
+
+    <table  width="400" class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Rôle</th>
+                <th>Libellé</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td style="text-align:center">{{ entity.id }}</td>
+                <td style="text-align:left">{{ entity.role }}</td>
+                <td style="text-align:left">{{ entity.libelle }}</td>
+                <td style="text-align:center">
+
+                <a href="{{ path('role_edit',   { 'id': entity.id }) }}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;
+                <a href="{{ path('role_delete', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-remove"></span></a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+<a type="button" class="btn btn-sm btn-default" href="{{ path('role_new') }}"><span class="glyphicon glyphicon-plus"></span> Ajouter un nouveau Rôle</a>
+
+
+    {% endblock %}

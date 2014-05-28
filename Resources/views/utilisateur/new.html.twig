@@ -1,0 +1,26 @@
+{% extends "OVEAuthentificationBundle:Default:ove-base.html.twig" %}
+
+{% block content -%}
+    <h1>Création Utilisateur</h1>
+
+    <form action="{{ path('utilisateur_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit">Créer</button>
+        </p>
+    </form>
+
+		<a href="{{ path('utilisateur') }}" class="round button dark menu-list image-left">Retour à la liste</a></li>
+
+<!--
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('utilisateur') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+-->
+
+{% endblock %}

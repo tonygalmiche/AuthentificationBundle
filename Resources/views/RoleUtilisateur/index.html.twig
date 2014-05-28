@@ -1,0 +1,116 @@
+{% extends "OVEAuthentificationBundle:Default:ove-base.html.twig" %}
+
+
+{% block stylesheets %}
+{{ parent() }}
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Affectation des rôles aux utilisateurs</h1>
+
+
+<div id="success-message" class="notice"></div>
+<div id="failure-message" class="error"></div>
+
+<form name="role_action_form" id="role_action_form" method="POST" >    
+<div class="content-module-main">
+
+	<table>
+		<tr>
+			<th style="text-align:left">Login</th>
+			<th style="text-align:center">Id Utilisateur</th>
+			<th style="text-align:center">Id Association</th>
+			{% for role in roles %}
+				<th style="text-align:center">{{role.Libelle}}</th>
+			{% endfor %} 
+		</tr>
+		{% for utilisateur in utilisateurs %}
+		<tr style="height:40px">
+			<td style="text-align:left">{{utilisateur.Login}}</td>
+			<td style="text-align:center">{{utilisateur.id}}</td>
+			<td style="text-align:center">{{utilisateur.IdAssociation}}</td>
+			{% for role in roles %}
+				<td style="text-align:center">
+					{% if RoleUtilisateur[utilisateur.id][role.id] == 1 %}
+						<img style="cursor: pointer;" src="{{ asset('bundles/oveauthentification/images/droit_ok.png') }}" onClick="gestion_droit(this,{{utilisateur.id}},{{role.id}})" title="OK">
+					{% else %}
+						<img style="cursor: pointer;" src="{{ asset('bundles/oveauthentification/images/droit_ko.png') }}" onClick="gestion_droit(this,{{utilisateur.id}},{{role.id}})" title="KO">
+					{% endif %}
+				</td>
+			{% endfor %} 
+		</tr>
+		{% endfor %} 
+	</table>
+</div>
+</form>
+
+
+<div id="message"></div>
+
+
+
+{% endblock %}
+
+
+
+{% block javascripts %}
+{{ parent() }}
+
+<script type="text/javascript">
+
+
+function gestion_droit(obj,id_utilisateur,id_role) {
+	src=obj.src;
+	len=src.length-12;
+	path=src.substring(0,len);
+
+	t=src.split('/');
+	src=t[t.length-1];
+	if(src=="droit_ko.png") {
+		src="droit_ok.png";
+		action="add";
+	} else {
+		src="droit_ko.png";
+		action="remove";
+	}
+
+	$.ajax({
+		url : "{{ path('role-utilisateur-update')}}?id_utilisateur="+id_utilisateur+"&id_role="+id_role+"&action="+action,
+		complete : function(xhr,result) {
+			if(result!="success") return;
+			var rep=xhr.responseText;
+			$('#message').html(rep);
+			if (rep.trim()=="") {
+				obj.src=path+src;
+			}
+		}
+	});
+
+}
+	
+
+
+
+
+
+
+$(document).ready(function(){     
+	//alert("document.ready");
+});
+
+
+
+/*
+	function gestion_droit(utilisateur,role,etat) {
+		alert("utilisateur = " + utilisateur + " : role = " + role + " : etat = " + etat);
+	}
+*/
+
+</script>
+
+
+
+{% endblock %}
+

@@ -1,0 +1,13 @@
+{% extends "OVEAuthentificationBundle:Default:ove-base.html.twig" %}
+
+{% block content %}
+
+  <h1>Administration</h1>
+   <ul class="list">
+        <li><a href="{{ path('association')}}">Associations</a></li>
+        <li><a href="{{ path('role')}}">Rôles</a></li>
+        <li><a href="{{ path('utilisateur')}}">Utilisateurs</a></li>
+        <li><a href="{{ path('role-utilisateur')}}">Affectation des rôles aux utilisateurs</a></li>
+    </ul>
+
+{% endblock %}

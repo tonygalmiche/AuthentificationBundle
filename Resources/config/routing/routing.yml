@@ -1,0 +1,56 @@
+
+# ** Authentification *************************************
+login:
+  pattern:              /login
+  defaults:             { _controller: OVEAuthentificationBundle:Default:login }
+  requirements:
+    _method:            GET
+
+login_check:
+  pattern:              /login_check
+
+logout:
+  pattern:              /logout
+
+forbidden:
+  pattern:              /forbidden
+  defaults:             { _controller: OVEAuthentificationBundle:Default:forbidden }
+# *********************************************************
+
+
+# ** Menu *************************************************
+accueil:
+  pattern:  /
+  defaults:             { _controller: OVEAuthentificationBundle:Default:index }
+
+administration:
+  pattern:              /administration
+  defaults:             { _controller: OVEAuthentificationBundle:Default:administration }
+
+parametrage:
+  pattern:              /parametrage
+  defaults:             { _controller: OVEAuthentificationBundle:Default:parametrage }
+#**********************************************************
+
+
+#** Entités ***********************************************
+ove_association:
+  resource: "@OVEAuthentificationBundle/Resources/config/routing/association.yml"
+  prefix:   /administration/association/
+
+ove_role:
+    resource: "@OVEAuthentificationBundle/Controller/roleController.php"
+    type:     annotation
+    prefix:   /administration/
+
+ove_utilisateur:
+    resource: "@OVEAuthentificationBundle/Controller/utilisateurController.php"
+    type:     annotation
+    prefix:   /administration/
+
+ove_role_utilisateur:
+    resource: "@OVEAuthentificationBundle/Controller/RoleUtilisateurController.php"
+    type:     annotation
+    prefix:   /administration/
+#**********************************************************
+

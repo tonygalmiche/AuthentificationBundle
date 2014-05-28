@@ -1,0 +1,101 @@
+{% extends "OVEAuthentificationBundle:Default:ove-base.html.twig" %}
+{% block content %}
+<h1>Association</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{ entity.name }}</td>
+        </tr>
+        <tr>
+            <th>Type</th>
+            <td>{{ entity.type }}</td>
+        </tr>
+        <tr>
+            <th>Ldapserveradress</th>
+            <td>{{ entity.ldapServerAdress }}</td>
+        </tr>
+        <tr>
+            <th>Ldapport</th>
+            <td>{{ entity.ldapPort }}</td>
+        </tr>
+        <tr>
+            <th>Ldapdn</th>
+            <td>{{ entity.ldapDn }}</td>
+        </tr>
+        <tr>
+            <th>Ldappassword</th>
+            <td>{{ entity.ldapPassword }}</td>
+        </tr>
+        <tr>
+            <th>Ldapdbroot</th>
+            <td>{{ entity.ldapDbRoot }}</td>
+        </tr>
+        <tr>
+            <th>Ldapfilter</th>
+            <td>{{ entity.ldapFilter }}</td>
+        </tr>
+        <tr>
+            <th>Mysqlserveradress</th>
+            <td>{{ entity.mysqlServerAdress }}</td>
+        </tr>
+        <tr>
+            <th>Mysqlport</th>
+            <td>{{ entity.mysqlPort }}</td>
+        </tr>
+        <tr>
+            <th>Mysqluser</th>
+            <td>{{ entity.mysqlUser }}</td>
+        </tr>
+        <tr>
+            <th>Mysqlpassword</th>
+            <td>{{ entity.mysqlPassword }}</td>
+        </tr>
+        <tr>
+            <th>Mysqlusertable</th>
+            <td>{{ entity.mysqlUserTable }}</td>
+        </tr>
+        <tr>
+            <th>Mysqlloginfield</th>
+            <td>{{ entity.mysqlLoginField }}</td>
+        </tr>
+        <tr>
+            <th>Mysqlpasswordfield</th>
+            <td>{{ entity.mysqlPasswordField }}</td>
+        </tr>
+        <tr>
+            <th>Mysqlfirstnamefield</th>
+            <td>{{ entity.mysqlFirstNameField }}</td>
+        </tr>
+        <tr>
+            <th>Mysqllastnamefield</th>
+            <td>{{ entity.mysqlLastNameField }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('association') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('association_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('association_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Supprimer</button>
+        </form>
+    </li>
+</ul>
+
+{% endblock %}

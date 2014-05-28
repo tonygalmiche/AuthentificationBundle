@@ -1,0 +1,30 @@
+association:
+    pattern:  /
+    defaults: { _controller: "OVEAuthentificationBundle:Association:index" }
+
+association_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "OVEAuthentificationBundle:Association:show" }
+
+association_new:
+    pattern:  /new
+    defaults: { _controller: "OVEAuthentificationBundle:Association:new" }
+
+association_create:
+    pattern:  /create
+    defaults: { _controller: "OVEAuthentificationBundle:Association:create" }
+    requirements: { _method: post }
+
+association_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "OVEAuthentificationBundle:Association:edit" }
+
+association_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "OVEAuthentificationBundle:Association:update" }
+    requirements: { _method: post }
+
+association_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "OVEAuthentificationBundle:Association:delete" }
+    requirements: { _method: post|get }

@@ -1,0 +1,45 @@
+{% extends "OVEAuthentificationBundle:Default:ove-base.html.twig" %}
+{% block title %}Connexion OVE{% endblock %}
+
+{% block body %}
+<div class="container">
+<div class="contenu">
+  <form class="form-signin" role="form" action="{{ path('login_check') }}" method="post" id="login-form">
+    <a href="#" class="logo"><img src="{{ asset('bundles/oveauthentification/images/ove-logo.jpg') }}" alt="OVE" /></a>
+    <h1>Connexion</h1>
+    {% if error %}
+      <div class="bg-danger">{{ error.message }}</div><br>
+    {% endif %}
+    <input id="username" name="_username" value="{{ last_username }}" class="form-control" placeholder="Utilisateur"  required autofocus><br>
+    <input type="password" id="password" name="_password" class="form-control" placeholder="Mot de passe" required><br>
+    <select id="select_association" style="width:100%">
+    {% for key,value in associations %}
+      <option value="{{key}}" {% if choix_association == key %}selected="selected"{% endif %}>{{value}}   </option>
+    {% endfor %}
+    </select></p>
+    <button class="btn btn-default btn-default" type="submit">Connexion</button>
+  </form>
+
+</div><!-- /.contenu -->
+</div><!-- /.container -->
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script type="text/javascript">
+    function save_cookie() {
+      v =  $("#select_association option:selected").val();
+      var date=new Date();
+      date.setDate(date.getDate() + 1000);
+      var cookie = "association=" + v + "; expires=" + date.toUTCString();
+      document.cookie = cookie;
+    }
+    $(document).ready(function(){     
+      $('#select_association').change(function () {
+        save_cookie();
+      })
+      save_cookie();
+    });
+  </script>
+{% endblock %}
+
