@@ -1,5 +1,5 @@
 {
-    "name": "OVE/AuthentificationBundle",
+    "name": "ove/authentification-bundle",
     "description": "OVE - Bundle Symfony d'authentification et de gestion des rôles via LDAP ou MySQL ",
     "homepage": "https://github.com/tonygalmiche/AuthentificationBundle",
     "license": "LGPL V3",
