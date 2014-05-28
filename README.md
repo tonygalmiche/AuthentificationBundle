@@ -84,10 +84,13 @@ Activer le Bundle en ajoutant cette ligne dans l'array des bundle :
 
 Mise en place des fichiers de configuration : 
 
-    cp /var/web/procedures/symfony_demo/app/config/ove_authentification.yml app/config/
-    vim /var/web/procedures/symfony_demo/app/config/routing.yml
-    vim app/config/routing.yml
-    cp /var/web/procedures/symfony_demo/app/config/security.yml app/config/
+    cp vendor/ove/authentification-bundle/OVE/AuthentificationBundle/Resources/Docs/ove_authentification.yml app/config/
+    cp vendor/ove/authentification-bundle/OVE/AuthentificationBundle/Resources/Docs/routing.yml app/config/
+    cp vendor/ove/authentification-bundle/OVE/AuthentificationBundle/Resources/Docs/security.yml app/config/
+ 
+Indiquer les paramètres pour se connecter à gestetab si ce dernier est utilisé
+
+    vim app/config/ove_authentification.yml 
 
 
 Mettre en place les assets : 
