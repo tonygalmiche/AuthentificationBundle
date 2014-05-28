@@ -239,8 +239,14 @@ class Association
        $empty_field_found=false;
         if($this->type === 'ldap' )
         {
-         $ldapFields = array('ldapServerAdress' => 'adresse du serveur LDAP','ldapPort'=> 'Port de serveur LDAP' ,'ldapDn' => 'dn de serveur LDAP','ldapPassword' => 'Mot de passe de serveur LDAP','ldapDbRoot' => 'Administrateur serveur ldap','ldapFilter'=> 'Filtre serveur ldap');
+         //$ldapFields = array('ldapServerAdress' => 'adresse du serveur LDAP','ldapPort'=> 'Port de serveur LDAP' ,'ldapDn' => 'dn de serveur LDAP','ldapPassword' => 'Mot de passe de serveur LDAP','ldapDbRoot' => 'Administrateur serveur ldap','ldapFilter'=> 'Filtre serveur ldap');
       
+
+         $ldapFields = array('ldapServerAdress' => 'adresse du serveur LDAP','ldapDn' => 'dn de serveur LDAP');
+
+
+
+
            foreach( $ldapFields as $k => $v)
              {
               if(property_exists($this, $k))
