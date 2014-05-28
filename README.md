@@ -16,5 +16,6 @@ OVE - Bundle Symfony d'authentification et de gestion des rôles via LDAP ou MyS
 ### Installation de composer
 
 Installation : 
+
     cd /home/tony/bin
     curl -s http://getcomposer.org/installer | php
