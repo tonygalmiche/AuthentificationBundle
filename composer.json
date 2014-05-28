@@ -1,0 +1,17 @@
+{
+    "name": "OVE/AuthentificationBundle",
+    "description": "OVE - Bundle Symfony d'authentification et de gestion des rôles via LDAP ou MySQL ",
+    "homepage": "https://github.com/tonygalmiche/AuthentificationBundle",
+    "license": "LGPL V3",
+    "authors": [
+        {
+            "name": "Tony Galmiche",
+            "email": "tony.galmiche@infosaone.com",
+            "homepage": "http://www.infosaone.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
