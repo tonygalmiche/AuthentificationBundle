@@ -4,9 +4,12 @@ OVE - Bundle Symfony d'authentification et de gestion des rôles via LDAP ou MyS
 
 ## Fonctionnalités
 
-* Pommes
-* Pommes
+* Fenêtre d'authentification
+* Gestion des associations pour autoriser plusieurs méthodes d'authentifcation en fonction de l'association (ex : MySQL, LDAP,..)
+* Gestion des utilisateurs, des rôles et de l'affactation des rôles aux utilisateurs
+* Thème graphique basé sur Bootsrap
+* 
 
-## un titre de premier niveau
+## Installation
 
-
+### Installation de composer
