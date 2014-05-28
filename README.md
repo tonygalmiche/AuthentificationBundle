@@ -15,6 +15,8 @@ OVE - Bundle Symfony d'authentification et de gestion des rôles via LDAP ou MyS
 
 ### Installation de composer
 
+Composer permet de gérer les dépendances et l'installation de modules PHP
+
 Installation : 
 
     cd /home/votre_login/bin
@@ -30,3 +32,10 @@ Mise à jour du PATH :
 Utilisation : 
 
     composer.phar
+
+### Installation de Synfony
+
+Installation de la dernière version 2.3 de Synfony (Synfony 2.4 necessite PHP 5.4) : 
+
+    cd /var/www/procedures
+    composer.phar create-project symfony/framework-standard-edition symfony 2.3.*
