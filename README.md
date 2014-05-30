@@ -116,15 +116,27 @@ Vérfier que le routage fonctionne :
 
 
 
+## Connexion
 
-## Utilisation
+Par défaut, la connexion se fait avec le login admin / adminpass
+
+Il faut donc commencer par changer le mot de passe dans ce fichier : 
+
+    app/config/security.yml
+
+Ensuite, une fois connecté, il faut créer une association pour pouvoir se connecter via une table MySQL ou via un annuaire LDAP
+
+
+
+
+## Gestion des droits
 
 Une fois connecté, il faut créer les rôles : 
   
   * ROLE_ADMIN
   * ROLE_PARAM
 
-Créer les utilisateurs ayant des rôles autres que `ROLE_USER`
+Créer les utilisateurs ayant des rôles autres que `ROLE_USER` et affecter les rôles aux utilisateurs
   
 
 
