@@ -98,10 +98,11 @@ Mettre en place les assets :
 
     php app/console assets:install web --symlink
 
-    
-Vérfier que le routage fonctionne : 
 
-    php app/console router:debug
+Initialiser les tables de la base de données : 
+
+    php app/console doctrine:schema:update --dump-sql
+    php app/console doctrine:schema:update --force
 
 
 Vider le cache
@@ -109,10 +110,11 @@ Vider le cache
     app/console cache:clear
 
 
-Initialiser les tables de la base de données : 
+Vérfier que le routage fonctionne : 
 
-    php app/console doctrine:schema:update --dump-sql
-    php app/console doctrine:schema:update --force
+    php app/console router:debug
+
+
 
 
 ## Utilisation
