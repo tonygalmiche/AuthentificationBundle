@@ -5,3 +5,8 @@ ove_authentification:
         reqPwd : le_mot_de_passe
         getDirecteur : true
 
+
+    webservice_token:
+      token_read : azertyuiop
+      token_write : aqwzsxedc
+

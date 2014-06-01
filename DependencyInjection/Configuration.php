@@ -34,6 +34,7 @@ class Configuration implements ConfigurationInterface
     $treeBuilder = new TreeBuilder();
     $rootNode = $treeBuilder->root('ove_authentification');
     $rootNode->children()->append($this->addGestetabNode())->end();
+    $rootNode->children()->append($this->addWebserviceTokenNode())->end();
 
     /*
     $rootNode
@@ -149,4 +150,22 @@ class Configuration implements ConfigurationInterface
           ->end();
       return $node;
   }
+
+
+  private function addWebserviceTokenNode()
+  {
+      $treeBuilder = new TreeBuilder();
+      $node = $treeBuilder->root('webservice_token');
+      $node
+          ->isRequired()
+          ->children()
+              ->scalarNode('token_read')->end()
+              ->scalarNode('token_write')->end()
+          ->end();
+      return $node;
+  }
+
+
+
+
 }
