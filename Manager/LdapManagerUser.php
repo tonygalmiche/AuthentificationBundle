@@ -6,6 +6,9 @@ use Symfony\Component\Security\Core\Exception\AuthenticationException;
 
 use OVE\AuthentificationBundle\Entity\Association;
 
+
+use Symfony\Component\DependencyInjection\ContainerInterface as Container;
+
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
@@ -22,6 +25,7 @@ class LdapManagerUser implements LdapManagerUserInterface
         $ldapUser,
         $association_obj
         ;
+
 
     public function __construct(LdapConnectionInterface $conn)
     {
@@ -480,9 +484,9 @@ class LdapManagerUser implements LdapManagerUserInterface
         if ($etablissement_id>0) {
           $directeur=$this->get_directeur($etablissement_id);
           if($login==$directeur) $roles["ROLE_DIRECTEUR"]="ROLE_DIRECTEUR"; 
-          $log = new Logger('tony');
-          $log->pushHandler(new StreamHandler('/tmp/tony.log', Logger::WARNING));
-          $log->addWarning("Tony : Manager/LdapManagerUser : addLdapRoles : directeur=$directeur");
+          //$log = new Logger('tony');
+          //$log->pushHandler(new StreamHandler('/tmp/tony.log', Logger::WARNING));
+          //$log->addWarning("Tony : Manager/LdapManagerUser : addLdapRoles : directeur=$directeur");
         }
         //}
         //*******************************************************************************
@@ -541,6 +545,9 @@ class LdapManagerUser implements LdapManagerUserInterface
       //$log->addWarning("Tony : Manager/LdapManagerUser : get_directeur : gestetab_host=".$gestetab["host"]);
       //$log->addWarning("Tony : Manager/LdapManagerUser : get_directeur : gestetab_host=".print_r($container->getParameter('gestetab'),true));
       //$log->addWarning("Tony : Manager/LdapManagerUser : get_directeur : url=$url");
+
+
+
 
 
       $etab = json_decode ( rawurldecode($reqResult));
