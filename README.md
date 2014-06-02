@@ -88,14 +88,14 @@ Ajout des paramètres de configuration :
     
     vim app/config/parameters.yml
     gestetab:
-        host : gestetab2.ove.asso.fr     # host gestetab
-        user : ove.webservice            # user gestetab
-        password : wbs1741               # password gestetab
+        host : host_gestetab             # host gestetab
+        user : le_user                   # user gestetab
+        password : le_pwd                # password gestetab
         get_directeur : false            # Active la recherche du directeur de l'établissement si necessaire
 
     webservice:
-      token_read : 538c33fe92efb538c340d022c9
-      token_write : 538c3473227db538c347b8610b
+      token_read : azerty
+      token_write : azerty0123456789
 
 
 
