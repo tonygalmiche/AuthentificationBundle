@@ -105,9 +105,6 @@ Mise en place des fichiers de configuration :
     cp vendor/ove/authentification-bundle/OVE/AuthentificationBundle/Resources/Docs/routing.yml app/config/
     cp vendor/ove/authentification-bundle/OVE/AuthentificationBundle/Resources/Docs/security.yml app/config/
  
-Indiquer les paramètres pour se connecter à gestetab si ce dernier est utilisé
-
-    vim app/config/ove_authentification.yml 
 
 
 Mettre en place les assets : 
