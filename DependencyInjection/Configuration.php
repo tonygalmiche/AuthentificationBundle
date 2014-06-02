@@ -17,7 +17,6 @@ class Configuration implements ConfigurationInterface
   public function getConfigTreeBuilder()
   {
 
-
     //Cette fonction est appellé lors du vidage de cache quand Symfony à besoin de construire l'arbre de la configuration
     //Même en quittant Firefox et en se connectant, cette fonction n'est pas appellée => Ce paramétrage doit-donc être mis en cache
     //Cette fonction sert à ajouter la configuration du ldap dans la configuration générale
@@ -33,8 +32,8 @@ class Configuration implements ConfigurationInterface
 
     $treeBuilder = new TreeBuilder();
     $rootNode = $treeBuilder->root('ove_authentification');
-    $rootNode->children()->append($this->addGestetabNode())->end();
-    $rootNode->children()->append($this->addWebserviceTokenNode())->end();
+    //$rootNode->children()->append($this->addGestetabNode())->end();
+    //$rootNode->children()->append($this->addWebserviceTokenNode())->end();
 
     /*
     $rootNode
@@ -131,6 +130,7 @@ class Configuration implements ConfigurationInterface
   */
 
 
+  /*
   private function addGestetabNode()
   {
       //$log = new Logger('tony');
@@ -150,8 +150,9 @@ class Configuration implements ConfigurationInterface
           ->end();
       return $node;
   }
+  */
 
-
+  /*
   private function addWebserviceTokenNode()
   {
       $treeBuilder = new TreeBuilder();
@@ -164,6 +165,7 @@ class Configuration implements ConfigurationInterface
           ->end();
       return $node;
   }
+  */
 
 
 

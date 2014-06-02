@@ -20,10 +20,9 @@ class DefaultController extends Controller
 
     public function indexAction()
     {
-
-
-
-
+        //$webservice=$this->container->getParameter('webservice');
+        //echo "token_read=".$webservice["token_read"]."<br>\n";
+        //echo $this->container->getParameter('test')."<br>\n";
         //return $this->redirect($this->generateUrl("accueil"));
         return $this->render('OVEAuthentificationBundle:Default:index.html.twig', array());
     }

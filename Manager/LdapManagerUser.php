@@ -6,8 +6,8 @@ use Symfony\Component\Security\Core\Exception\AuthenticationException;
 
 use OVE\AuthentificationBundle\Entity\Association;
 
-//use Monolog\Logger;
-//use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 
 use Symfony\Component\HttpFoundation\Session\Session;
 
@@ -474,17 +474,17 @@ class LdapManagerUser implements LdapManagerUserInterface
 
 
         //** Ajout du role de directeur *************************************************
-        if($this->params["gestetab"]["getDirecteur"]) {
-          $etablissement_id=@$_COOKIE["etablissement"];
-          //$etablissement_id=101021; //OVE - DELTA 01
-          if ($etablissement_id>0) {
-            $directeur=$this->get_directeur($etablissement_id);
-            if($login==$directeur) $roles["ROLE_DIRECTEUR"]="ROLE_DIRECTEUR"; 
-            //$log = new Logger('tony');
-            //$log->pushHandler(new StreamHandler('/tmp/tony.log', Logger::WARNING));
-            //$log->addWarning("Tony : Manager/LdapManagerUser : addLdapRoles : directeur=$directeur");
-          }
+        //if($this->params["gestetab"]["getDirecteur"]) {
+        $etablissement_id=@$_COOKIE["etablissement"];
+        //$etablissement_id=101021; //OVE - DELTA 01
+        if ($etablissement_id>0) {
+          $directeur=$this->get_directeur($etablissement_id);
+          if($login==$directeur) $roles["ROLE_DIRECTEUR"]="ROLE_DIRECTEUR"; 
+          $log = new Logger('tony');
+          $log->pushHandler(new StreamHandler('/tmp/tony.log', Logger::WARNING));
+          $log->addWarning("Tony : Manager/LdapManagerUser : addLdapRoles : directeur=$directeur");
         }
+        //}
         //*******************************************************************************
 
 
@@ -503,9 +503,25 @@ class LdapManagerUser implements LdapManagerUserInterface
 
  
     function get_directeur($gid) {
+
+      //** Lecture des paramètres du fichier parameters.yml *********
+      global $kernel;
+      $container=$kernel->getContainer();
+      $gestetab=$container->getParameter('gestetab');
+      $host          = $gestetab["host"];
+      $user          = $gestetab["user"];
+      $password      = $gestetab["password"];
+      $get_directeur = $gestetab["get_directeur"];
+      //*************************************************************
+
+      if($get_directeur==false) return "";
+
       $REQ=array();
-      $REQ["reqLogin"]     = $this->params["gestetab"]["reqLogin"];
-      $REQ["reqPwd"]       = $this->params["gestetab"]["reqPwd"];
+      //$REQ["reqLogin"]     = $this->params["gestetab"]["reqLogin"];
+      //$REQ["reqPwd"]       = $this->params["gestetab"]["reqPwd"];
+      $REQ["reqLogin"]     = $user;
+      $REQ["reqPwd"]       = $password;
+
       $REQ["reqMethod"]    = 'etabInfo';
       $REQ["reqIdent"]     = $gid;
       $REQ["reqItem"]      = 'gacDirLogin';
@@ -513,14 +529,19 @@ class LdapManagerUser implements LdapManagerUserInterface
       $REQ["reqTri"]       =  '' ;
       $jsoREQ = json_encode($REQ) ;
 
-      $host=$this->params["gestetab"]["host"];
+
+      //$host=$this->params["gestetab"]["host"];
       $url = "http://$host/index.php";       
       $url .= "?reqAction=WBS&REQ=". rawurlencode ( $jsoREQ );
       $reqResult = file_get_contents( $url );
 
       //$log = new Logger('tony');
       //$log->pushHandler(new StreamHandler('/tmp/tony.log', Logger::WARNING));
+      //$log->addWarning("Tony : Manager/LdapManagerUser : get_directeur : reqLogin=".$this->params["gestetab"]["reqLogin"]);
+      //$log->addWarning("Tony : Manager/LdapManagerUser : get_directeur : gestetab_host=".$gestetab["host"]);
+      //$log->addWarning("Tony : Manager/LdapManagerUser : get_directeur : gestetab_host=".print_r($container->getParameter('gestetab'),true));
       //$log->addWarning("Tony : Manager/LdapManagerUser : get_directeur : url=$url");
+
 
       $etab = json_decode ( rawurldecode($reqResult));
       if (!is_object($etab)) return; 

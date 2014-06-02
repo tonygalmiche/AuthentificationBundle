@@ -1,6 +1,3 @@
-imports:
-    - { resource: ove_authentification.yml }
-
 security:
     encoders:
         OVE\AuthentificationBundle\User\LdapUser: plaintext
@@ -16,8 +13,8 @@ security:
         in_memory:
             memory:
                 users:
-                    user:         { password: userpass,    roles: [ 'ROLE_USER' ] }
-                    admin:        { password: adminpass,   roles: [ 'ROLE_ADMIN', 'ROLE_PARAM' ] }
+                    user:         { password: oveuserpass,    roles: [ 'ROLE_USER' ] }
+                    admin:        { password: oveadminpass,   roles: [ 'ROLE_ADMIN', 'ROLE_PARAM' ] }
 
 
     firewalls:
@@ -49,5 +46,12 @@ security:
 
         - { path: ^/login          ,   roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/anonyme        ,   roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/webservice/    ,   roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/               ,   roles: IS_AUTHENTICATED_FULLY }
+
+
+
+
+
+
 
