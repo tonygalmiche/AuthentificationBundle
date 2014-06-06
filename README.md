@@ -84,21 +84,6 @@ Activer le Bundle en ajoutant cette ligne dans l'array des bundle :
           new OVE\AuthentificationBundle\OVEAuthentificationBundle(),
 
 
-Ajout des paramètres de configuration : 
-    
-    vim app/config/parameters.yml
-    gestetab:
-        host : host_gestetab             # host gestetab
-        user : le_user                   # user gestetab
-        password : le_pwd                # password gestetab
-        get_directeur : false            # Active la recherche du directeur de l'établissement si necessaire
-
-    webservice:
-      token_read : azerty
-      token_write : azerty0123456789
-
-
-
 
 Mise en place des fichiers de configuration : 
 
