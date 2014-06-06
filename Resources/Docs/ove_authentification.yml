@@ -1,0 +1,11 @@
+parameters:
+    gestetab:
+        host : host.net                  # host gestetab
+        user : le_user                   # user gestetab
+        password : le_pwd                # password gestetab
+        get_directeur : false            # Active la recherche du directeur de l'établissement si necessaire
+
+    webservice:
+      token_read : azertyuiop
+      token_write : azertyuiop0123456789
+
