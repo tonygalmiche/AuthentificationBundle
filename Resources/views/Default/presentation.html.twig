@@ -1,0 +1,20 @@
+{% extends "OVEAuthentificationBundle:Default:ove-base.html.twig" %}
+
+
+{% block stylesheets %}
+  {{ parent()}}
+  <link href="{{css}}" rel="stylesheet" type="text/css" media="screen" />
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+    <div class="row">
+      <h1>Présentation de l'application</h1>
+      {{ presentation | raw  }}
+    </div>
+  </div>
+
+{% endblock %}
+

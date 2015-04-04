@@ -23,6 +23,10 @@ accueil:
   pattern:  /
   defaults:             { _controller: OVEAuthentificationBundle:Default:index }
 
+presentation:
+  pattern:              /presentation
+  defaults:             { _controller: OVEAuthentificationBundle:Default:presentation }
+
 administration:
   pattern:              /administration
   defaults:             { _controller: OVEAuthentificationBundle:Default:administration }
@@ -33,7 +37,7 @@ parametrage:
 #**********************************************************
 
 
-#** Entités ***********************************************
+#** Controller ***********************************************
 ove_association:
   resource: "@OVEAuthentificationBundle/Resources/config/routing/association.yml"
   prefix:   /administration/association/
@@ -52,5 +56,11 @@ ove_role_utilisateur:
     resource: "@OVEAuthentificationBundle/Controller/RoleUtilisateurController.php"
     type:     annotation
     prefix:   /administration/
+
+ove_parametres_auth:
+    resource: "@OVEAuthentificationBundle/Controller/ParametresAuthController.php"
+    type:     annotation
+    prefix:   /administration/
+
 #**********************************************************
 

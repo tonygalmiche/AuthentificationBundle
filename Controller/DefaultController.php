@@ -27,6 +27,25 @@ class DefaultController extends Controller
         return $this->render('OVEAuthentificationBundle:Default:index.html.twig', array());
     }
 
+
+    public function presentationAction() {
+
+
+      //** Texte de présentation *********************************************
+      $em = $this->getDoctrine()->getManager();
+      $entity = $em->getRepository('OVEAuthentificationBundle:parametresauth')->find(1);
+      $presentation=""; $css="";
+      if($entity) {
+        $presentation = $entity->getInformation();
+        $css          = $entity->getCss();
+      }
+      //**********************************************************************
+
+      return $this->render('OVEAuthentificationBundle:Default:presentation.html.twig', array("presentation"=>$presentation,"css"=>$css));
+    }
+
+
+
     public function parametrageAction() {
         return $this->render('OVEAuthentificationBundle:Default:parametrage.html.twig', array());
     }
@@ -66,13 +85,25 @@ class DefaultController extends Controller
 				//*********************************************************************
 
 
+        //** Texte d'introduction *********************************************
+        $entity = $em->getRepository('OVEAuthentificationBundle:parametresauth')->find(1);
+        $introduction=""; $css="";
+        if($entity) {
+          $introduction = $entity->getIntroduction();
+          $css          = $entity->getCss();
+        }
+        //**********************************************************************
+
+
 				$choix_association=@$_COOKIE["association"];
         return $this->render('OVEAuthentificationBundle:Default:login.html.twig', array(
             'last_username' => $this->get('request')->getSession()->get(SecurityContext::LAST_USERNAME),
             'error'         => $error,
             'token'         => $this->generateToken(),
             'associations'  => $associations,
-            'choix_association'  => $choix_association
+            'choix_association' => $choix_association,
+            'introduction'      => $introduction,
+            'css'               => $css,
         ));
     }
 

@@ -1,6 +1,13 @@
 {% extends "OVEAuthentificationBundle:Default:ove-base.html.twig" %}
 {% block title %}Connexion OVE{% endblock %}
 
+{% block stylesheets %}
+  {{ parent()}}
+  <link href="{{css}}" rel="stylesheet" type="text/css" media="screen" />
+{% endblock %}
+
+
+
 {% block body %}
 <div class="container">
 <div class="contenu">
@@ -19,6 +26,12 @@
     </select></p>
     <button class="btn btn-default btn-default" type="submit">Connexion</button>
   </form>
+
+  <div class="row">
+      <div class="col-sm-12 text-left procedure">
+          {{introduction|raw}}
+      </div>
+  </div>
 
 </div><!-- /.contenu -->
 </div><!-- /.container -->
